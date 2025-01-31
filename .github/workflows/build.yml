@@ -2,6 +2,24 @@ name: build
 on:
   workflow_dispatch:
 jobs:
+  deploy:
+    runs-on: ubuntu-latest
+   
+    
+    needs: build
+    environment:
+      name: production
+      url: ${{ steps.webapp.outputs.web-url }}
+    steps:
+      - uses: azure/webapps-deploy@v3.0.0
+        id: webapp
+        with:
+          app-name: gha-workshop
+          publish-profile: ${{ secrets.AZURE_WEPAPP_PUBLISH_PROFILE }}
+          images: 'ghcr.io/bonigh/lesso9:latest'
+          restart: true
+
+      
   build:
     runs-on: ubuntu-latest
     steps:
