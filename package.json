@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@bonigh/lesson8": "^1.1.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",
@@ -16,7 +17,7 @@
     "postcss": "^8.4.31"
   },
   "scripts": {
-    "start": "BROWSER=none WDS_SOCKET_PORT=0 vite --port 3000",
+    "start": "BROWSER=none WDS_SOCKET_PORT=0 vite --port 3000 --host 0.0.0.0",
     "build": "vite build",
     "preview": "vite preview",
     "test": "vitest"
